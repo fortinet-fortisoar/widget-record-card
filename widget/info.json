@@ -1,0 +1,19 @@
+{
+    "name": "recordCard",
+    "title": "Record Card",
+    "subTitle": "Show module records in a card tile view",
+    "version": "1.0.0",
+    "metadata": {
+        "description": "Show module records in a card tile view",
+        "pages": [
+            "Listing",
+            "View Panel"
+        ],
+        "certified": "Yes",
+        "publisher": "Fortinet",
+        "compatibility": [
+            "7.3.0"
+        ]
+    },
+    "development": true
+}
