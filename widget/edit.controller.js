@@ -2,16 +2,16 @@
 (function () {
   angular
     .module("cybersponse")
-    .controller("editRecordCard100DevCtrl", editRecordCard100DevCtrl);
+    .controller("editRecordCard100Ctrl", editRecordCard100Ctrl);
 
-    editRecordCard100DevCtrl.$inject = [
+    editRecordCard100Ctrl.$inject = [
     "$scope",
     "$uibModalInstance",
     "config",
     "appModulesService",
     "Entity"
   ];
-  function editRecordCard100DevCtrl(
+  function editRecordCard100Ctrl(
     $scope,
     $uibModalInstance,
     config,
