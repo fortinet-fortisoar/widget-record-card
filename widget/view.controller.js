@@ -36,16 +36,7 @@
     toaster
   ) {
     $scope.getList = getList;
-    $scope.openRecord = openRecord; 
-    $scope.deleteCard = deleteCard; 
-    $scope.config = angular.copy(config);
-    $scope.collapsed =
-      angular.isDefined(config.widgetAlwaysExpanded) &&
-      config.widgetAlwaysExpanded
-        ? !config.widgetAlwaysExpanded
-        : $scope.page !== undefined &&
-          $scope.page.toLowerCase() !== "dashboard" &&
-          $scope.page.toLowerCase() !== "reporting";
+    $scope.openRecord = openRecord;
     function init() {
       $scope.modulePermissions = currentPermissionsService.getPermission($scope.config.module);
       if (!$scope.modulePermissions.read) {
@@ -99,26 +90,6 @@
         previousParams: JSON.stringify($state.params),
       };
       $state.go(state, params);
-    }
-    
-    function deleteCard(event, cardId){
-      event.stopPropagation();
-      event.preventDefault();
-      ModalService.confirm('Are you sure that you want to delete selected card?').then(function(result) {
-        if (result) {
-          $resource(cardId).delete().$promise.then(function(){
-           $scope.fieldRows = _.reject($scope.fieldRows, function(item){ return item['@id'].value === cardId; });
-           toaster.success({
-              body: 'Card deleted successfully'
-           }); 
-            
-          }, function(){
-            toaster.error({
-              body: 'Unable to delete card'
-           });
-          });
-        }
-      });
     }
       
     function _setCardColors() {
