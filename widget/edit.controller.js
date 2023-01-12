@@ -4,31 +4,21 @@
     .module("cybersponse")
     .controller("editRecordCard100Ctrl", editRecordCard100Ctrl);
 
-    editRecordCard100Ctrl.$inject = [
-    "$scope",
-    "$uibModalInstance",
-    "config",
-    "appModulesService",
-    "Entity"
-  ];
-  function editRecordCard100Ctrl(
-    $scope,
-    $uibModalInstance,
-    config,
-    appModulesService,
-    Entity
-  ) {
+  editRecordCard100Ctrl.$inject = ['$scope', '$uibModalInstance', 'config', 'appModulesService', 'Entity'];
+  function editRecordCard100Ctrl($scope, $uibModalInstance, config, appModulesService, Entity) {
     $scope.cancel = cancel;
     $scope.save = save;
     $scope.loadAttributes = loadAttributes;
-    function _init(){
+    function _init() {
+      $scope.query = { direction: 'ASC' };
       var _config = {
         mapping: {
-            cardTitle: null,
-            subtitle: null,
-            showIcon: false,
-            cardLeftBorder: null
-          }};
+          cardTitle: null,
+          subtitle: null,
+          showIcon: false,
+          cardLeftBorder: null
+        }
+      };
       $scope.config = {};
       angular.extend($scope.config, _config, config);
       $scope.pageConfig = {
@@ -36,7 +26,7 @@
       };
       appModulesService.load(true).then(function (modules) {
         $scope.modules = modules;
-        if ($scope.config.module !== "") {
+        if ($scope.config.module) {
           loadAttributes();
         }
       });
