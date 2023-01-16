@@ -41,7 +41,6 @@
               else {
                 item.image = img.replace('\"></p>', '')
               }
-              console.log(item.image);
             }
           });
           $scope.processing = false;
