@@ -44,8 +44,22 @@
                 <h6>Select Card Fields</h6>
             </div>
             <div class="form-group"
+                data-ng-class="{ 'has-error': editRecordCardWidgetForm.carsTilesIcon.$invalid && editRecordCardWidgetForm.carsTilesIcon.$touched}">
+                <label for="carsTilesIcon" class="control-label">Icon <span class="text-danger">*</span></label>
+                <span data-uib-tooltip="Select the rich text field where the icon image is saved"
+                    data-tooltip-append-to-body="true"><i class="margin-left-sm icon icon-information font-Size-13">
+                    </i></span>
+                <select id="carsTilesIcon" name="carsTilesIcon" class="form-control"
+                    data-ng-model="config.mapping.recordIcon"
+                    data-ng-options="field.name as field.title for field in fieldsArray | orderBy: 'title'"
+                    data-ng-required="true" required="required">
+                    <option value="" class="" selected="selected">Select a field</option>
+                </select>
+                <div data-cs-messages="editRecordCardWidgetForm.carsTilesIcon"></div>
+            </div>
+            <div class="form-group"
                 data-ng-class="{ 'has-error': editRecordCardWidgetForm.cardTilesTitle.$invalid && editRecordCardWidgetForm.cardTilesTitle.$touched}">
-                <label for="cardTilesTitle" class="control-label">Card Title <span class="text-danger">*</span></label>
+                <label for="cardTilesTitle" class="control-label">Title <span class="text-danger">*</span></label>
                 <select id="cardTilesTitle" name="cardTilesTitle" class="form-control"
                     data-ng-model="config.mapping.cardTitle"
                     data-ng-options="field.name as field.title for field in fieldsArray | orderBy: 'title'"
@@ -65,22 +79,8 @@
                 </select>
                 <div data-cs-messages="editRecordCardWidgetForm.carsTilesSubTitle"></div>
             </div>
-            <div class="form-group"
-                data-ng-class="{ 'has-error': editRecordCardWidgetForm.carsTilesIcon.$invalid && editRecordCardWidgetForm.carsTilesIcon.$touched}">
-                <label for="carsTilesIcon" class="control-label">Icon <span class="text-danger">*</span></label>
-                <span data-uib-tooltip="Select the rich text field where the icon image is saved"
-                    data-tooltip-append-to-body="true"><i class="margin-left-sm icon icon-information font-Size-13">
-                    </i></span>
-                <select id="carsTilesIcon" name="carsTilesIcon" class="form-control"
-                    data-ng-model="config.mapping.recordIcon"
-                    data-ng-options="field.name as field.title for field in fieldsArray | orderBy: 'title'"
-                    data-ng-required="true" required="required">
-                    <option value="" class="" selected="selected">Select a field</option>
-                </select>
-                <div data-cs-messages="editRecordCardWidgetForm.carsTilesIcon"></div>
-            </div>
             <div class="form-group">
-                <label for="cardTilesLeftBorder" class="control-label">Card Left Border</label>
+                <label for="cardTilesLeftBorder" class="control-label">Left Border</label>
                 <select id="cardTilesLeftBorder" name="cardTilesLeftBorder" class="form-control"
                     data-ng-model="config.mapping.cardLeftBorder"
                     data-ng-options="field.name as field.title for field in pickListFields | orderBy: 'title'">
@@ -94,8 +94,8 @@
             </div>
             <div class="form-group"
                 data-ng-class="{ 'has-error': editRecordCardWidgetForm.cardTilesfilters.$invalid && editRecordCardWidgetForm.cardTilesfilters.$touched }">
-                <div data-cs-conditional data-ng-if="fieldsArray.length > 0" data-fields="$parent.fields"
-                    data-reset-field="$parent.fields" data-mode="'queryFilters'" data-ng-model="$parent.config.query"
+                <div data-cs-conditional data-ng-if="fieldsArray.length > 0" data-fields="fields"
+                    data-reset-field="fields" data-mode="'queryFilters'" data-ng-model="config.query"
                     data-parent-form="editRecordCardWidgetForm"
                     data-enable-expression="(page==='dashboard' || page==='reporting')" data-show-uuid="true"
                     data-form-name="'editRecordCardWidgetForm'"></div>
@@ -107,7 +107,7 @@
             </div>
             <div class="form-group"
                 data-ng-class="{ 'has-error': editRecordCardWidgetForm.cardTilesSortBy.$invalid && editRecordCardWidgetForm.cardTilesSortBy.$touched }">
-                <div data-cs-default-sort data-ng-model="config.query" data-fields-array="fieldsArray"
+                <div data-cs-default-sort data-ng-model="query" data-fields-array="fieldsArray"
                     data-parent-form="cardForm"></div>
                 <div data-cs-messages="editRecordCardWidgetForm.cardTilesSortBy"></div>
             </div>

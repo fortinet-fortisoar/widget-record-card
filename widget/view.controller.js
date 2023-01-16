@@ -3,38 +3,8 @@
   angular
     .module("cybersponse")
     .controller("recordCard100Ctrl", recordCard100Ctrl);
-    recordCard100Ctrl.$inject = [
-    "$scope",
-    "config",
-    "currentPermissionsService",
-    "PagedCollection",
-    "appModulesService",
-    "$window",
-    "$state",
-    "$filter",
-    "_",
-    "$rootScope",
-    "Query",
-    "ModalService",
-    "$resource",
-    "toaster"
-  ];
-  function recordCard100Ctrl(
-    $scope,
-    config,
-    currentPermissionsService,
-    PagedCollection,
-    appModulesService,
-    $window,
-    $state,
-    $filter,
-    _,
-    $rootScope,
-    Query,
-    ModalService,
-    $resource,
-    toaster
-  ) {
+  recordCard100Ctrl.$inject = ['$scope', 'config', 'currentPermissionsService', 'PagedCollection', 'appModulesService', '$window', '$state', '$filter', '_', '$rootScope', 'Query', 'ModalService', '$resource', 'toaster'];
+  function recordCard100Ctrl($scope, config, currentPermissionsService, PagedCollection, appModulesService, $window, $state, $filter, _, $rootScope, Query, ModalService, $resource, toaster) {
     $scope.getList = getList;
     $scope.openRecord = openRecord;
     function init() {
@@ -62,26 +32,25 @@
         .loadGridRecord()
         .then(function () {
           $scope.fieldRows = pagedCollection.fieldRows;
-          _.map($scope.fieldRows, function(item){ 
-            if(item.recordIcon){
-                 var img = item.recordIcon.value.replace('<p><img src=\"', '');
-                 if(img.includes('\" /></p>')){
-                 item.image = img.replace('\" /></p>', '')
-                 }
-                 else{
-                   item.image = img.replace('\"></p>', '')
-                 }
-                 console.log(item.image);
+          _.map($scope.fieldRows, function (item) {
+            if (item.recordIcon) {
+              var img = item.recordIcon.value.replace('<p><img src=\"', '');
+              if (img.includes('\" /></p>')) {
+                item.image = img.replace('\" /></p>', '')
+              }
+              else {
+                item.image = img.replace('\"></p>', '')
+              }
             }
-         });
+          });
           $scope.processing = false;
         }, angular.noop)
         .finally(function () {
           $scope.processing = false;
         });
     }
-    
-     function openRecord(module, id) {
+
+    function openRecord(module, id) {
       var state = appModulesService.getState(module);
       var params = {
         module: module,
@@ -91,7 +60,7 @@
       };
       $state.go(state, params);
     }
-      
+
     function _setCardColors() {
       var theme = $rootScope.theme;
       $scope.cardTilesThemeColor = {};
