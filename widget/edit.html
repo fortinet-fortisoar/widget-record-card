@@ -94,9 +94,9 @@
             </div>
             <div class="form-group"
                 data-ng-class="{ 'has-error': editRecordCardWidgetForm.cardTilesfilters.$invalid && editRecordCardWidgetForm.cardTilesfilters.$touched }">
-                <div data-cs-conditional data-ng-if="fieldsArray.length > 0" data-fields="fields"
-                    data-reset-field="fields" data-mode="'queryFilters'" data-ng-model="config.query"
-                    data-parent-form="editRecordCardWidgetForm"
+                <div data-cs-conditional name="cardTilesfilters" data-ng-if="fieldsArray.length > 0"
+                    data-fields="fields" data-reset-field="fields" data-mode="'queryFilters'"
+                    data-ng-model="config.query" data-parent-form="editRecordCardWidgetForm"
                     data-enable-expression="(page==='dashboard' || page==='reporting')" data-show-uuid="true"
                     data-form-name="'editRecordCardWidgetForm'"></div>
                 <div data-cs-messages="editRecordCardWidgetForm.cardTilesfilters"></div>
@@ -107,8 +107,8 @@
             </div>
             <div class="form-group"
                 data-ng-class="{ 'has-error': editRecordCardWidgetForm.cardTilesSortBy.$invalid && editRecordCardWidgetForm.cardTilesSortBy.$touched }">
-                <div data-cs-default-sort data-ng-model="query" data-fields-array="fieldsArray"
-                    data-parent-form="cardForm"></div>
+                <div data-cs-default-sort name="cardTilesSortBy" data-ng-model="config.query"
+                    data-fields-array="fieldsArray" data-parent-form="cardForm"></div>
                 <div data-cs-messages="editRecordCardWidgetForm.cardTilesSortBy"></div>
             </div>
         </div>
