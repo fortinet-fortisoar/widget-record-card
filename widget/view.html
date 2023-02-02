@@ -3,7 +3,8 @@
     <div class="display-flex-space-between margin-chart">
         <div class="padding-right-0 padding-left-0 widget-dashboard-title-width"
             data-ng-class="(page === 'dashboard' || page === 'reporting') ? 'widget-dashboard-title-width' : 'widget-title-width'">
-            <h5 data-ng-if="config.title !==''" class="padding-left-lg margin-top-0 margin-bottom-0 text-overflow">{{config.title}}</h5>
+            <h5 data-ng-if="config.title !==''" class="padding-left-lg margin-top-0 margin-bottom-0 text-overflow">
+                {{config.title}}</h5>
         </div>
         <div class="padding-right-0 padding-left-0"
             data-ng-class="(page === 'dashboard' || page === 'reporting') ? 'widget-dashboard-actions-width' : 'widget-actions-width'">
@@ -15,24 +16,31 @@
                 data-ng-click="openRecord(config.module, record['@id'].value)" role="button" tabindex="0"
                 data-ng-style="{'border-left-color':record[config.mapping.cardLeftBorder].value.color || cardTilesThemeColor.cardBorderLeftColor, 'background': cardTilesThemeColor.cardBackgroundColor}">
                 <div class="card-tiles-content padding-bottom-30 padding-top-30 text-center">
-                    <div data-ng-if="config.mapping.recordIcon"
-                        class="margin-top-md margin-bottom-md text-center">
-                        <img src="{{record.image}}" alt="Red dot" height="60" width="60"/>
+                    <div data-ng-if="config.mapping.recordIcon" class="margin-top-md margin-bottom-md text-center">
+                        <img src="{{record.image}}" alt="Red dot" height="60" width="60" />
                     </div>
                     <div class="card-content-fixed-height">
-                        <h4 class="card-tile-title margin-top-md word-break"
-                            data-cs-view-field="record[config.mapping.cardTitle]"></h4>
+                        <h4 class="card-tile-title margin-top-md ng-binding padding-top-xlg word-break">
+                            {{record[config.mapping.cardTitle].value}}</h4>
                         <div class="card-tiles-details">
-                            <div class="margin-0" title="{{record[config.mapping.subtitle].title}}">
-                                <div class="card-single-details margin-left-sm"
-                                    data-cs-view-field="record[config.mapping.subtitle]"></div>
+                            <div class="margin-0" title="{{record.description.value}}">
+
+                                <div data-uib-tooltip-html="'{{record.description.value}}'"
+                                    data-tooltip-append-to-body="true" data-tooltip-placement="top"
+                                    class="card-single-details card-tile-subtitle card-tiles-description margin-left-sm"
+                                    data-ng-bind-html="record.description.value"></div>
+
                             </div>
                         </div>
                     </div>
                     <div class="card-content-fixed-height">
-                        <h6 class="line-height-1 margin-bottom-xlg no-background padding-0 text-center" title="{{config.cardTilesTitle}}">{{config.cardTilesTitle}}</h6>
+                        <h6 class="line-height-1 margin-bottom-xlg no-background padding-0 text-center"
+                            title="{{config.cardTilesTitle}}">{{config.cardTilesTitle}}</h6>
                         <div class="card-content-fixed-height">
-                            <p class="font-size-13 line-height-15 margin-bottom-0 margin-top-lg" title="{{config.carsTilesSubTitle}}">{{config.carsTilesSubTitle}}</p>
+
+                            <p class="font-size-13 line-height-15 margin-bottom-0 margin-top-lg"
+                                title="{{config.carsTilesSubTitle}}">{{config.carsTilesSubTitle}}</p>
+
                         </div>
                     </div>
                 </div>
