@@ -1,12 +1,12 @@
 {
-    "name": "recordCardDev",
+    "name": "recordCard",
     "version": "1.0.0",
     "title": "Record Card",
     "subTitle": "Show module records in a record card format",
     "metadata": {
         "snapshots": [
             "https:\/\/repo.fortisoar.fortinet.com\/widgets\/recordCard-1.0.0\/images\/record_card_view.png",
-            "https:\/\/repo.fortisoar.fortinet.com\/widgets\/recordCardDev-1.0.0\/images\/record_card_edit.png"
+            "https:\/\/repo.fortisoar.fortinet.com\/widgets\/recordCard-1.0.0\/images\/record_card_edit.png"
         ],
         "pages": [
             "Listing",
