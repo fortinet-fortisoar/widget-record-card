@@ -1,20 +1,23 @@
 {
     "name": "recordCard",
     "title": "Record Card",
-    "subTitle": "Show module records in a card tile view",
+    "subTitle": "Show module records in a record card format",
     "version": "1.0.0",
     "published_date": "1658838600",
     "metadata": {
-        "description": "Show module records in a card tile view",
+        "snapshots": [
+            "https:\/\/repo.fortisoar.fortinet.com\/widgets\/recordCard-1.0.0\/images\/record_card_view.png",
+            "https:\/\/repo.fortisoar.fortinet.com\/widgets\/recordCard-1.0.0\/images\/record_card_edit.png"
+        ],
         "pages": [
             "Listing",
             "View Panel"
         ],
         "certified": "Yes",
         "publisher": "Fortinet",
+        "description": "Show module records in a record card format",
         "compatibility": [
-            "7.3.0"
+            "7.2.0"
         ]
-    },
-    "development": true
+    }
 }
