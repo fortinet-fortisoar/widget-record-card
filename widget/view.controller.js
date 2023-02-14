@@ -33,8 +33,8 @@
         .then(function () {
           $scope.fieldRows = pagedCollection.fieldRows;
           _.map($scope.fieldRows, function (item) {
-            if (item.recordIcon) {
-              var img = item.recordIcon.value.replace('<p><img src=\"', '');
+            if (item[$scope.config.mapping.recordIcon]) {
+              var img = item[$scope.config.mapping.recordIcon].value.replace('<p><img src=\"', '');
               if (img.includes('\" /></p>')) {
                 item.image = img.replace('\" /></p>', '')
               }
