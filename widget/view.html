@@ -23,11 +23,10 @@
                         <h4 class="card-tile-title margin-top-md ng-binding padding-top-xlg word-break">
                             {{record[config.mapping.cardTitle].value}}</h4>
                         <div class="card-tiles-details">
-                            <div class="margin-0">
-                                <div data-uib-tooltip-html="'{{record.description.value | stripTags}}'"
-                                    data-tooltip-append-to-body="true" data-tooltip-placement="top">
-                                  <span data-ng-bind-html="record.description.value" class="card-single-details card-tile-subtitle card-tiles-description margin-left-sm"></span>
-                              </div>
+                            <div data-uib-tooltip-html="'{{record[config.mapping.subtitle].value | stripTags}}'"
+                                data-tooltip-append-to-body="true" data-tooltip-placement="top">
+                                <span data-ng-bind-html="record[config.mapping.subtitle].value"
+                                    class="card-single-details card-tile-subtitle card-tiles-description margin-left-sm"></span>
                             </div>
                         </div>
                     </div>
