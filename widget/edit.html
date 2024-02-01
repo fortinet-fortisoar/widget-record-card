@@ -1,0 +1,123 @@
+<form data-ng-submit="save()" class="noMargin" name="editRecordCardWidgetForm"
+    data-ng-class="{'state-wait': processing }" novalidate>
+    <div class="modal-header">
+        <h3 class="modal-title col-md-9">Record Card Edit View
+        </h3>
+        <button type="button" class="close" data-ng-click="cancel()" data-dismiss="modal" aria-label="Close"
+            id="close-edit-widget-form-btn">
+            <div aria-hidden="true" class="version-button">+
+            </div>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="form-group"
+            data-ng-class="{ 'has-error': editRecordCardWidgetForm.title.$invalid && editRecordCardWidgetForm.title.$touched }">
+            <label for="title" class="control-label">Title
+            </label>
+            <input id="title" name="title" type="text" class="form-control" data-ng-model="config.title">
+        </div>
+        <div class="form-group"
+            data-ng-class="{ 'has-error': editRecordCardWidgetForm.cardTilesModule.$invalid && editRecordCardWidgetForm.cardTilesModule.$touched }"
+            data-ng-if="modules || playbookModules">
+            <label for="cardTilesModule" class="control-label">Data Source<span class="text-danger">*</span>
+            </label>
+            <select name="cardTilesModule" id="cardTilesModule" class="form-control"
+                data-ng-options="module.type as module.name for module in modules | playbookModules"
+                data-ng-model="config.module" data-ng-change="loadAttributes()" required>
+                <option value="">Select an Option</option>
+            </select>
+            <div data-cs-messages="editRecordCardWidgetForm.cardTilesModule"></div>
+        </div>
+        <div data-ng-if="config.module">
+            <div class="form-group"
+                data-ng-class="{ 'has-error': editRecordCardWidgetForm.cardTilesMaxRecordSize.$invalid && editRecordCardWidgetForm.cardTilesMaxRecordSize.$touched }">
+                <label for="cardTilesMaxRecordSize" class="control-label">Max Record Limit<span
+                        class="text-danger">*</span></label>
+                <select name="cardTilesMaxRecordSize" id="cardTilesMaxRecordSize" class="form-control" style="width:30%"
+                    ng-options="size for size in pageConfig.maxRecordSize" ng-model="config.query.limit" required>
+                </select>
+                <div data-cs-messages="editRecordCardWidgetForm.cardTilesMaxRecordSize">
+                </div>
+            </div>
+            <div class="mertics-widget-border padding-top-md padding-bottom-md"></div>
+            <div class="margin-top-md margin-bottom-md">
+                <h6>Select Card Fields</h6>
+            </div>
+            <div class="form-group"
+                data-ng-class="{ 'has-error': editRecordCardWidgetForm.carsTilesIcon.$invalid && editRecordCardWidgetForm.carsTilesIcon.$touched}">
+                <label for="carsTilesIcon" class="control-label">Icon <span class="text-danger">*</span></label>
+                <span data-uib-tooltip="Select the rich text (HTML) field where the icon image is saved"
+                    data-tooltip-append-to-body="true"><i class="margin-left-sm icon icon-information font-Size-13">
+                    </i></span>
+                <select id="carsTilesIcon" name="carsTilesIcon" class="form-control"
+                    data-ng-model="config.mapping.recordIcon"
+                    data-ng-options="field.name as field.title for field in fieldsArray | orderBy: 'title'"
+                    data-ng-required="true" required="required">
+                    <option value="" class="" selected="selected">Select a field</option>
+                </select>
+                <div data-cs-messages="editRecordCardWidgetForm.carsTilesIcon"></div>
+            </div>
+            <div class="form-group"
+                data-ng-class="{ 'has-error': editRecordCardWidgetForm.cardTilesTitle.$invalid && editRecordCardWidgetForm.cardTilesTitle.$touched}">
+                <label for="cardTilesTitle" class="control-label">Title <span class="text-danger">*</span></label>
+                <select id="cardTilesTitle" name="cardTilesTitle" class="form-control"
+                    data-ng-model="config.mapping.cardTitle"
+                    data-ng-options="field.name as field.title for field in fieldsArray | orderBy: 'title'"
+                    data-ng-required="true" required="required">
+                    <option value="" class="" selected="selected">Select a field</option>
+                </select>
+                <div data-cs-messages="editRecordCardWidgetForm.cardTilesTitle"></div>
+            </div>
+            <div class="form-group"
+                data-ng-class="{ 'has-error': editRecordCardWidgetForm.carsTilesSubTitle.$invalid && editRecordCardWidgetForm.carsTilesSubTitle.$touched}">
+                <label for="carsTilesSubTitle" class="control-label">Subtitle <span class="text-danger">*</span></label>
+                <select id="carsTilesSubTitle" name="carsTilesSubTitle" class="form-control"
+                    data-ng-model="config.mapping.subtitle"
+                    data-ng-options="field.name as field.title for field in fieldsArray | orderBy: 'title'"
+                    data-ng-required="true" required="required">
+                    <option value="" class="" selected="selected">Select a field</option>
+                </select>
+                <div data-cs-messages="editRecordCardWidgetForm.carsTilesSubTitle"></div>
+            </div>
+            <div class="form-group">
+                <label for="cardTilesLeftBorder" class="control-label">Left Border</label>
+                <select id="cardTilesLeftBorder" name="cardTilesLeftBorder" class="form-control"
+                    data-ng-model="config.mapping.cardLeftBorder"
+                    data-ng-options="field.name as field.title for field in pickListFields | orderBy: 'title'">
+                    <option value="" class="" selected="selected">Select a field</option>
+                </select>
+            </div>
+
+            <div class="mertics-widget-border padding-top-md padding-bottom-md"></div>
+            <div class="margin-top-md margin-bottom-md">
+                <h6>Filter Criteria</h6>
+            </div>
+            <div class="form-group"
+                data-ng-class="{ 'has-error': editRecordCardWidgetForm.cardTilesfilters.$invalid && editRecordCardWidgetForm.cardTilesfilters.$touched }">
+                <div data-cs-conditional name="cardTilesfilters" data-ng-if="fieldsArray.length > 0"
+                    data-fields="fields" data-reset-field="fields" data-mode="'queryFilters'"
+                    data-ng-model="config.query" data-parent-form="editRecordCardWidgetForm"
+                    data-enable-expression="(page==='dashboard' || page==='reporting')" data-show-uuid="true"
+                    data-form-name="'editRecordCardWidgetForm'"></div>
+                <div data-cs-messages="editRecordCardWidgetForm.cardTilesfilters"></div>
+            </div>
+            <div class="mertics-widget-border padding-top-md padding-bottom-md"></div>
+            <div class="margin-top-md margin-bottom-md">
+                <h6>Default Sort</h6>
+            </div>
+            <div class="form-group"
+                data-ng-class="{ 'has-error': editRecordCardWidgetForm.cardTilesSortBy.$invalid && editRecordCardWidgetForm.cardTilesSortBy.$touched }">
+                <div data-cs-default-sort name="cardTilesSortBy" data-ng-model="config.query"
+                    data-fields-array="fieldsArray" data-parent-form="cardForm"></div>
+                <div data-cs-messages="editRecordCardWidgetForm.cardTilesSortBy"></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button id="edit-widget-save" type="submit" class="btn btn-sm btn-primary"><i
+                class="icon icon-check margin-right-sm"></i>Save</button>
+        <button id="edit-widget-cancel" type="button" class="btn btn-sm btn-default" data-ng-click="cancel()"><i
+                class="icon icon-close margin-right-sm">
+            </i>Close</button>
+    </div>
+</form>

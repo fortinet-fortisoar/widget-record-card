@@ -1,0 +1,49 @@
+.card-tiles-container {
+  width: 253px;
+  float: left;
+  margin: 20px 20px 0px 0px;
+  border-radius: 10px;
+  position: relative;
+  border-left: 2px solid;
+  opacity: 0.8;
+}
+
+.card-tiles-container:hover {
+  opacity: 1;
+}
+
+.card-tile-title {
+  font-size: 17px;
+  height: 40px;
+  min-height: 40px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-tiles-content {
+  padding: 10px 15px;
+  position: relative;
+}
+
+.card-tiles-details {
+  font-size: 12px;
+  padding-top: 8px;
+}
+
+.card-single-details {
+  display: inline-block;
+}
+
+.card-tiles-description {
+  overflow: hidden;
+  height: 30px;
+  min-height: 30px;
+  font-size: 12px;
+  line-height: 14px;
+  margin: 20px 0px 5px 0px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
