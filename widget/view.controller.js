@@ -70,16 +70,16 @@
       $scope.cardTilesThemeColor = {};
       if (theme.id === "light") {
         $scope.cardTilesThemeColor.cardBackgroundColor = "#eeeeee";
-        $scope.cardTilesThemeColor.cardBorderLeftColor = "#eeeeee";
+        $scope.cardTilesThemeColor.cardBorderLeftColor = "#0D9BE3";
         $scope.cardTilesThemeColor.cardIconSeparator = "#eeeeee";
       } else if (theme.id === "steel") {
         $scope.cardTilesThemeColor.cardBackgroundColor = "#29323e";
-        $scope.cardTilesThemeColor.cardBorderLeftColor = "#29323e";
+        $scope.cardTilesThemeColor.cardBorderLeftColor = "#22a6af";
         $scope.cardTilesThemeColor.cardIconSeparator = "#29323e";
       } else {
         $scope.cardTilesThemeColor.cardBackgroundColor = "#262626";
-        $scope.cardTilesThemeColor.cardBorderLeftColor = "#262626";
-        $scope.cardTilesThemeColor.cardIconSeparator = "#29323e";
+        $scope.cardTilesThemeColor.cardBorderLeftColor = "#2cafc3";
+        $scope.cardTilesThemeColor.cardIconSeparator = "#262626";
       }
     }
 
