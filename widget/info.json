@@ -16,7 +16,7 @@
         "certified": "Yes",
         "publisher": "Fortinet",
         "help_online": "https:\/\/github.com\/fortinet-fortisoar\/widget-record-card\/blob\/release\/1.0.1\/README.md",
-        "description": "Show module records in a record card format",
+        "description": "The Record Card widget helps visualize records based on a specified data source.",
         "compatibility": [
             "7.2.0"
         ]
